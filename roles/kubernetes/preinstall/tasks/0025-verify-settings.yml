@@ -3,9 +3,9 @@
 - name: Stop if kubeadm mode is enabled but custom_flag set
   assert:
     that: >
-      (apiserver_custom_flags|d([])|length == 0 or
-      controller_mgr_custom_flags|d([])|length == 0 or
-      scheduler_custom_flags|d([])|length == 0
+      ( apiserver_custom_flags is defined and apiserver_custom_flags|length == 0 ) or
+      ( controller_mgr_custom_flags is defined and controller_mgr_custom_flags|length == 0 ) or
+      ( scheduler_custom_flags is defined and scheduler_custom_flags|length == 0 )
     msg: "controlplane *_custom_flag with kubeadm not working, use kube_kubeadm_*_extra_args variables"
   when: kubeadm_enabled
 
