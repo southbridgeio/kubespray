@@ -718,7 +718,7 @@ downloads:
     tag: "{{ kube_apiserver_image_tag }}"
     sha256: "{{ kube_apiserver_digest_checksum|default(None) }}"
     groups:
-      - k8s-cluster
+      - kube-master
 
   kube_controller_manager:
     enabled: "{{ kubeadm_enabled == false }}"
@@ -727,7 +727,7 @@ downloads:
     tag: "{{ kube_controller_manager_image_tag }}"
     sha256: "{{ kube_controller_manager_digest_checksum|default(None) }}"
     groups:
-      - k8s-cluster
+      - kube-master
 
   kube_scheduler:
     enabled: "{{ kubeadm_enabled == false }}"
@@ -736,7 +736,7 @@ downloads:
     tag: "{{ kube_scheduler_image_tag }}"
     sha256: "{{ kube_apiserver_digest_checksum|default(None) }}"
     groups:
-      - k8s-cluster
+      - kube-master
 
   kubelet:
     enabled: true
