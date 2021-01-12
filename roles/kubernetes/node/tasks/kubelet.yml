@@ -43,8 +43,6 @@
 - name: Set kubelet api version to v1beta1
   set_fact:
     kubeletConfig_api_version: v1beta1
-  when:
-    - kubeadm_enabled
   tags:
     - kubelet
     - kubeadm
