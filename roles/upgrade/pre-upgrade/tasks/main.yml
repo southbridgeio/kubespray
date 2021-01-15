@@ -7,11 +7,9 @@
   when:
     - upgrade_node_confirm
 
-- name: Confirm node upgrade
+- name: "Wait before upgrade node"
   pause:
-    echo: yes
     seconds: "{{ upgrade_node_pause_seconds }}"
-    prompt: "Wait {{ upgrade_node_pause_seconds }} before upgrade node"
   when:
     - not upgrade_node_confirm
     - upgrade_node_pause_seconds != 0
